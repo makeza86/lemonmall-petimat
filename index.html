@@ -276,15 +276,41 @@
 
 <div class="form-section" id="form">
   <h2>ОСТАВЬ ЗАЯВКУ</h2>
-  <form>
-    <input type="text" placeholder="Имя" required />
-    <input type="text" placeholder="Фамилия" required />
-    <input type="tel" placeholder="Номер телефона" required />
-    <input type="text" placeholder="Страна" required />
-    <input type="text" placeholder="Город" required />
-    <button type="submit">отправить</button>
+  <form id="partnerForm">
+    <input type="text" id="firstName" placeholder="Имя" required />
+    <input type="text" id="lastName" placeholder="Фамилия" required />
+    <input type="tel" id="phone" placeholder="Номер телефона" required />
+    <input type="text" id="country" placeholder="Страна" required />
+    <input type="text" id="city" placeholder="Город" required />
+    <button type="submit">Отправить</button>
   </form>
 </div>
+
+<script>
+  document.getElementById("partnerForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Собираем данные из формы
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const phone = document.getElementById("phone").value;
+    const country = document.getElementById("country").value;
+    const city = document.getElementById("city").value;
+
+    // Текст для WhatsApp
+    const message = `Новая заявка:%0AИмя: ${firstName}%0AФамилия: ${lastName}%0AТелефон: ${phone}%0AСтрана: ${country}%0AГород: ${city}%0AХочу стать партнёром`;
+
+    // Номер WhatsApp (можешь поменять на свой)
+    const whatsappNumber = "77085080140";
+
+    // Ссылка для перехода
+    const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    // Открыть WhatsApp
+    window.open(url, "_blank");
+  });
+</script>
+
 
 <footer>
   <p>&copy; 2025 Lemon Mall. All rights reserved.</p>
