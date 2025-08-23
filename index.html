@@ -135,11 +135,11 @@
     footer { background:#333; color:#fff; text-align:center; padding:40px 20px; font-size:14px; }
     footer a { color:#f5e050; margin:0 10px; }
 
-    /* === ДОБАВКА: уменьшить плеер и сделать кнопки «гамбургером» === */
-    .video-box{ max-width: 720px; margin: 0 auto; }          /* контейнер видео */
+    /* === ДОБАВКА: стили для блока видео-воронки === */
+    .video-box{ max-width: 720px; margin: 0 auto; }
     .video-actions{
       display: flex;
-      flex-direction: column;    /* кнопки в колонку */
+      flex-direction: column; /* гамбургер: кнопки в колонку */
       gap: 12px;
       align-items: stretch;
       margin-bottom: 16px;
@@ -149,12 +149,16 @@
       width: 100%;
       text-align: center;
     }
-    .video-btn{                 /* базовый стиль кнопки */
-      background:#ffd34d; border:0; color:#000; font-weight:700;
+    .video-btn{
+      border:0; font-weight:700;
       padding:12px 18px; border-radius:8px; cursor:pointer;
     }
-    .video-btn.secondary{ background:#eee; color:#333; } /* серая */
-    .video-btn.next{ background:#25D366; color:#fff; }   /* зелёная "Далее" */
+    .video-btn.next{ background:#25D366; color:#fff; }   /* зелёная «Далее» */
+    .video-btn.secondary{ background:#4daaf7; color:#fff; } /* голубая «Назад» */
+
+    /* Подсветка индикатора текущего шага */
+    .step-indicator{ text-align:center;margin:16px 0 8px;color:#666; }
+    .step-indicator.active{ color:#d4af37; font-weight:700; }
   </style>
 </head>
 <body>
@@ -176,7 +180,7 @@
         Ваш браузер не поддерживает видео.
       </video>
     </div>
-    <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 1/3</div>
+    <div class="step-indicator active" id="ind1">Шаг 1/3</div>
     <div class="video-actions">
       <button class="video-btn next" onclick="showVStep(2)">Далее →</button>
     </div>
@@ -190,7 +194,7 @@
         Ваш браузер не поддерживает видео.
       </video>
     </div>
-    <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 2/3</div>
+    <div class="step-indicator" id="ind2">Шаг 2/3</div>
     <div class="video-actions">
       <button class="video-btn next" onclick="showVStep(3)">Далее →</button>
       <button class="video-btn secondary" onclick="showVStep(1)">← Назад</button>
@@ -205,7 +209,7 @@
         Ваш браузер не поддерживает видео.
       </video>
     </div>
-    <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 3/3</div>
+    <div class="step-indicator" id="ind3">Шаг 3/3</div>
     <div class="video-actions">
       <a class="whatsapp-button" href="https://wa.me/77085080140?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%BE%D0%BC" target="_blank">Стать партнёром</a>
       <button class="video-btn secondary" onclick="showVStep(2)">← Назад</button>
@@ -214,7 +218,7 @@
 </section>
 
 <script>
-  // Автопереход на следующий шаг после окончания ролика
+  // Автопереход на следующий шаг после окончания ролика (как было)
   (function(){
     const v1 = document.getElementById('v1');
     const v2 = document.getElementById('v2');
@@ -225,14 +229,16 @@
   function showVStep(n){
     for(let i=1;i<=3;i++){
       const block = document.getElementById('vstep'+i);
-      if(!block) continue;
-      // Остановить скрываемое видео
-      const vid = block.querySelector('video');
-      if(vid && i!==n){
-        try{ vid.pause(); }catch(e){}
-        try{ vid.currentTime = 0; }catch(e){}
+      const ind   = document.getElementById('ind'+i);
+      if(block){
+        const vid = block.querySelector('video');
+        if(vid && i!==n){
+          try{ vid.pause(); }catch(e){}
+          try{ vid.currentTime = 0; }catch(e){}
+        }
+        block.style.display = (i===n) ? 'block' : 'none';
       }
-      block.style.display = (i===n) ? 'block' : 'none';
+      if(ind){ ind.classList.toggle('active', i===n); }
     }
     const root = document.getElementById('videos');
     if(root){ root.scrollIntoView({behavior:'smooth', block:'start'}); }
