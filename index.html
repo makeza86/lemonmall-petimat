@@ -100,7 +100,7 @@
     }
     .review h4 { margin: 6px 0 8px; }
 
-    /* HOW IT WORKS */
+    /* HOW IT WORKS (вертикальная цепочка со стрелками вниз) */
     #how { padding-bottom: 30px; }
     .how-steps { padding: 10px 0 30px; }
     .steps { display: grid; gap: 22px; max-width: 720px; margin: 0 auto; }
@@ -125,6 +125,7 @@
     .arrow{ display:flex; justify-content:center; align-items:center; color:#d4af37; }
     .arrow i{ font-size:26px; }
 
+    /* На десктопе тоже остаётся вертикально */
     @media (min-width: 900px){
       .steps{ grid-template-columns: 1fr; }
       .arrow i{ transform:none; }
@@ -134,6 +135,15 @@
 
     footer { background:#333; color:#fff; text-align:center; padding:40px 20px; font-size:14px; }
     footer a { color:#f5e050; margin:0 10px; }
+
+    /* ==== ДОБАВЛЕНО: размеры плеера и серые кнопки ==== */
+    .funnel-video{ width:70%; max-width:720px; height:auto; display:block; margin:0 auto; }
+    .btn-secondary{
+      background:#eee; color:#333; text-decoration:none; padding:12px 20px; border-radius:8px; font-weight:700; display:inline-block;
+    }
+    @media (max-width: 600px){
+      .funnel-video{ width:90%; max-width:360px; }
+    }
   </style>
 </head>
 <body>
@@ -143,20 +153,20 @@
   <p>Инновационный маркетплейс из Азии для всего Мира</p>
 </header>
 
-<!-- ===== ВИДЕО-ВОРОНКА (встроенный блок) ===== -->
+<!-- ===== ВИДЕО-ВОРОНКА (сразу после шапки) ===== -->
 <section id="videos" style="max-width:1100px;margin:40px auto;padding:0 20px;background:rgba(255,255,255,0.95);border-radius:12px;">
   <h2 style="text-align:center;font-size:34px;margin-bottom:16px;color:#222;">Видео-воронка</h2>
 
   <!-- Шаг 1 -->
   <div class="video-step" id="vstep1">
     <div style="position:relative;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
-      <video id="v1" controls playsinline preload="metadata" style="width:100%;height:auto;display:block;">
+      <video id="v1" class="funnel-video" controls playsinline preload="metadata">
         <source src="videos/video1.mp4" type="video/mp4">
         Ваш браузер не поддерживает видео.
       </video>
     </div>
     <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 1/3</div>
-    <div style="text-align:center;margin-bottom:16px;">
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;">
       <a href="#videos" class="whatsapp-button" onclick="showVStep(2);return false;">Далее →</a>
     </div>
   </div>
@@ -164,13 +174,14 @@
   <!-- Шаг 2 -->
   <div class="video-step" id="vstep2" style="display:none;">
     <div style="position:relative;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
-      <video id="v2" controls playsinline preload="metadata" style="width:100%;height:auto;display:block;">
+      <video id="v2" class="funnel-video" controls playsinline preload="metadata">
         <source src="videos/video2.mp4" type="video/mp4">
         Ваш браузер не поддерживает видео.
       </video>
     </div>
     <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 2/3</div>
-    <div style="text-align:center;margin-bottom:16px;">
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;">
+      <a href="#videos" class="btn-secondary" onclick="showVStep(1);return false;">← Назад</a>
       <a href="#videos" class="whatsapp-button" onclick="showVStep(3);return false;">Далее →</a>
     </div>
   </div>
@@ -178,21 +189,22 @@
   <!-- Шаг 3 -->
   <div class="video-step" id="vstep3" style="display:none;">
     <div style="position:relative;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
-      <video id="v3" controls playsinline preload="metadata" style="width:100%;height:auto;display:block;">
+      <video id="v3" class="funnel-video" controls playsinline preload="metadata">
         <source src="videos/video3.mp4" type="video/mp4">
         Ваш браузер не поддерживает видео.
       </video>
     </div>
     <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 3/3</div>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;">
-      <a class="whatsapp-button" href="https://wa.me/77085080140?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%BE%D0%BC" target="_blank">Написать в WhatsApp</a>
-      <a class="whatsapp-button" href="#form">Оставить заявку</a>
+      <a href="#videos" class="btn-secondary" onclick="showVStep(2);return false;">← Назад</a>
+      <a class="whatsapp-button" href="https://wa.me/77085080140?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%BE%D0%BC" target="_blank">Стать партнёром</a>
+      <!-- Кнопку "Оставить заявку" по твоей просьбе убрал -->
     </div>
   </div>
 </section>
 
 <script>
-  // Автопереход на следующий шаг после окончания ролика
+  // Автопереход: при окончании видео показать следующий шаг
   (function(){
     const v1 = document.getElementById('v1');
     const v2 = document.getElementById('v2');
@@ -204,7 +216,7 @@
     for(let i=1;i<=3;i++){
       const block = document.getElementById('vstep'+i);
       if(!block) continue;
-      // Остановить скрываемое видео
+      // Останавливаем видео на скрываемых шагах
       const vid = block.querySelector('video');
       if(vid && i!==n){
         try{ vid.pause(); }catch(e){}
@@ -212,6 +224,7 @@
       }
       block.style.display = (i===n) ? 'block' : 'none';
     }
+    // Скроллим к началу блока воронки
     const root = document.getElementById('videos');
     if(root){ root.scrollIntoView({behavior:'smooth', block:'start'}); }
   }
@@ -343,7 +356,7 @@
 </section>
 
 <div class="cta">
-   <a class="whatsapp-button" href="https://wa.me/77085080140?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D0%B5%D1%80%D0%BE%D0%BC" target="_blank">
+   <a class="whatsapp-button" href="https://wa.me/77085080140?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%BE%D0%BC" target="_blank">
     <i class="fab fa-whatsapp"></i> Напиши в WhatsApp
   </a>
 </div>
@@ -363,14 +376,24 @@
 <script>
   document.getElementById("partnerForm").addEventListener("submit", function(e) {
     e.preventDefault();
+
+    // Собираем данные из формы
     const firstName = document.getElementById("firstName").value;
     const lastName = document.getElementById("lastName").value;
     const phone = document.getElementById("phone").value;
     const country = document.getElementById("country").value;
     const city = document.getElementById("city").value;
+
+    // Текст для WhatsApp
     const message = `Новая заявка:%0AИмя: ${firstName}%0AФамилия: ${lastName}%0AТелефон: ${phone}%0AСтрана: ${country}%0AГород: ${city}%0AХочу стать партнёром`;
+
+    // Номер WhatsApp
     const whatsappNumber = "77085080140";
+
+    // Ссылка для перехода
     const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    // Открыть WhatsApp
     window.open(url, "_blank");
   });
 </script>
