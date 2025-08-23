@@ -149,11 +149,12 @@
       width: 100%;
       text-align: center;
     }
-    .video-btn{                 /* стиль обычной кнопки */
+    .video-btn{                 /* базовый стиль кнопки */
       background:#ffd34d; border:0; color:#000; font-weight:700;
       padding:12px 18px; border-radius:8px; cursor:pointer;
     }
-    .video-btn.secondary{ background:#eee; color:#333; }
+    .video-btn.secondary{ background:#eee; color:#333; } /* серая */
+    .video-btn.next{ background:#25D366; color:#fff; }   /* зелёная "Далее" */
   </style>
 </head>
 <body>
@@ -177,7 +178,7 @@
     </div>
     <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 1/3</div>
     <div class="video-actions">
-      <button class="video-btn" onclick="showVStep(2)">Далее →</button>
+      <button class="video-btn next" onclick="showVStep(2)">Далее →</button>
     </div>
   </div>
 
@@ -191,8 +192,8 @@
     </div>
     <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 2/3</div>
     <div class="video-actions">
+      <button class="video-btn next" onclick="showVStep(3)">Далее →</button>
       <button class="video-btn secondary" onclick="showVStep(1)">← Назад</button>
-      <button class="video-btn" onclick="showVStep(3)">Далее →</button>
     </div>
   </div>
 
@@ -213,7 +214,7 @@
 </section>
 
 <script>
-  // Автопереход на следующий шаг после окончания ролика (оставил как у тебя)
+  // Автопереход на следующий шаг после окончания ролика
   (function(){
     const v1 = document.getElementById('v1');
     const v2 = document.getElementById('v2');
