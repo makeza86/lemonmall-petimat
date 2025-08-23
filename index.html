@@ -136,14 +136,15 @@
     footer { background:#333; color:#fff; text-align:center; padding:40px 20px; font-size:14px; }
     footer a { color:#f5e050; margin:0 10px; }
 
-    /* === Modal Video Funnel (добавлено) === */
+    /* === Modal Video Funnel (уменьшено на ~20%) === */
     .video-modal-backdrop{
       position: fixed; inset: 0; background: rgba(0,0,0,.55);
       display: none; align-items: center; justify-content: center; z-index: 2000;
       padding: 20px;
     }
     .video-modal{
-      width: min(900px, 100%); background: #fff; border-radius: 14px;
+      width: min(720px, 100%); /* было 900px */
+      background: #fff; border-radius: 14px;
       box-shadow: 0 20px 60px rgba(0,0,0,.25); overflow: hidden;
     }
     .video-modal-header{
@@ -157,7 +158,7 @@
     .video-modal-body{ padding: 12px 16px 16px; }
     .video-wrapper{
       position: relative; border-radius: 10px; overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
       background: #000;
     }
     .video-wrapper video{ width:100%; height:auto; display:block; }
@@ -335,7 +336,7 @@
   </div>
 </footer>
 
-<!-- === Video Funnel Modal (добавлено) === -->
+<!-- === Video Funnel Modal === -->
 <div class="video-modal-backdrop" id="videoModal" aria-hidden="true" role="dialog" aria-label="Видео-воронка">
   <div class="video-modal" role="document">
     <div class="video-modal-header">
@@ -354,13 +355,13 @@
 
       <div class="video-actions" id="videoActions">
         <button class="video-btn" id="nextBtn">Далее →</button>
-        <button class="video-btn secondary" id="skipBtn">Остаться на сайте</button>
+        <!-- На 1-2 видео кнопки "Остаться" нет. Появится только на финальном шаге -->
       </div>
     </div>
   </div>
 </div>
 
-<!-- === Script for Video Funnel (добавлено) === -->
+<!-- === Script for Video Funnel === -->
 <script>
 (function(){
   // Настройки
@@ -413,20 +414,14 @@
     actions.innerHTML = '';
 
     if (idx < videos.length - 1){
-      // Видео 1 и 2
+      // Видео 1 и 2 — только кнопка "Далее"
       const next = document.createElement('button');
       next.className = 'video-btn';
       next.textContent = 'Далее →';
       next.onclick = () => setVideo(idx+1);
       actions.appendChild(next);
-
-      const stay = document.createElement('button');
-      stay.className = 'video-btn secondary';
-      stay.textContent = 'Остаться на сайте';
-      stay.onclick = closeModal;
-      actions.appendChild(stay);
     } else {
-      // Видео 3 — финал
+      // Видео 3 — финал: WhatsApp + Остаться
       const wa = document.createElement('a');
       wa.className = 'whatsapp-button';
       wa.href = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(waText);
