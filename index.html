@@ -34,6 +34,81 @@
       color: #fff1a8;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
+    <!-- ===== ВИДЕО-ВОРОНКА (сразу после шапки) ===== -->
+<section id="videos" style="max-width:1100px;margin:40px auto;padding:0 20px;background:rgba(255,255,255,0.95);border-radius:12px;">
+  <h2 style="text-align:center;font-size:34px;margin-bottom:16px;color:#222;">Видео-воронка</h2>
+
+  <!-- Шаг 1 -->
+  <div class="video-step" id="vstep1">
+    <div style="position:relative;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
+      <video id="v1" controls playsinline preload="metadata" style="width:100%;height:auto;display:block;">
+        <source src="videos/video1.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </div>
+    <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 1/3</div>
+    <div style="text-align:center;margin-bottom:16px;">
+      <a href="#videos" class="whatsapp-button" onclick="showVStep(2);return false;">Далее →</a>
+    </div>
+  </div>
+
+  <!-- Шаг 2 -->
+  <div class="video-step" id="vstep2" style="display:none;">
+    <div style="position:relative;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
+      <video id="v2" controls playsinline preload="metadata" style="width:100%;height:auto;display:block;">
+        <source src="videos/video2.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </div>
+    <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 2/3</div>
+    <div style="text-align:center;margin-bottom:16px;">
+      <a href="#videos" class="whatsapp-button" onclick="showVStep(3);return false;">Далее →</a>
+    </div>
+  </div>
+
+  <!-- Шаг 3 -->
+  <div class="video-step" id="vstep3" style="display:none;">
+    <div style="position:relative;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
+      <video id="v3" controls playsinline preload="metadata" style="width:100%;height:auto;display:block;">
+        <source src="videos/video3.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </div>
+    <div style="text-align:center;margin:16px 0 8px;color:#666;">Шаг 3/3</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;">
+      <a class="whatsapp-button" href="https://wa.me/77085080140?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%BE%D0%BC" target="_blank">Написать в WhatsApp</a>
+      <a class="whatsapp-button" href="#form">Оставить заявку</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Автопереход: при окончании видео показать следующий шаг
+  (function(){
+    const v1 = document.getElementById('v1');
+    const v2 = document.getElementById('v2');
+    const v3 = document.getElementById('v3');
+    if(v1){ v1.addEventListener('ended', ()=>showVStep(2)); }
+    if(v2){ v2.addEventListener('ended', ()=>showVStep(3)); }
+  })();
+
+  function showVStep(n){
+    for(let i=1;i<=3;i++){
+      const block = document.getElementById('vstep'+i);
+      if(!block) continue;
+      // Останавливаем видео на скрытых шагах
+      const vid = block.querySelector('video');
+      if(vid && i!==n){
+        try{ vid.pause(); }catch(e){}
+        try{ vid.currentTime = 0; }catch(e){}
+      }
+      block.style.display = (i===n) ? 'block' : 'none';
+    }
+    // Скроллим к началу блока воронки
+    const root = document.getElementById('videos');
+    if(root){ root.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
+</script>
     nav {
       position: sticky;
       top: 0;
