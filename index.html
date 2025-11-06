@@ -1,470 +1,256 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lemon Mall</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HUAGE & Lemon Mall — международный маркетплейс нового поколения</title>
+  <meta name="description" content="Lemon Mall — инновационный международный маркетплейс: доступные цены, премиальное качество и быстрая доставка. Присоединяйтесь к команде Петимат и начните зарабатывать уже сегодня." />
+
+  <!-- Open Graph / Telegram / WhatsApp -->
+  <meta property="og:title" content="HUAGE & Lemon Mall — маркетплейс нового поколения" />
+  <meta property="og:description" content="Присоединяйтесь к команде Петимат. Ежедневные бонусы и привилегии партнёров HUAGE. Начните сегодня!" />
+  <meta property="og:image" content="assets/images/og-cover.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourname.github.io/petimat-lemonmall/" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <meta name="theme-color" content="#ffd700">
+  <link rel="icon" href="assets/images/og-cover.jpg" />
 
-  <!-- Open Graph (для соцсетей и мессенджеров) -->
-  <meta property="og:site_name" content="Lemon Mall">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lemonmall.huage.ru/">
-  <meta property="og:title" content="Lemon Mall — партнёрство, доход и свобода">
-  <meta property="og:description" content="Стань партнёром Lemon Mall: продукция, сеть и пассивный доход. Всё начинается здесь.">
-  <meta property="og:image" content="https://lemonmall.huage.ru/images/og.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="ru_RU">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Lemon Mall — партнёрство, доход и свобода">
-  <meta name="twitter:description" content="Стань партнёром Lemon Mall: продукция, сеть и пассивный доход. Всё начинается здесь.">
-  <meta name="twitter:image" content="https://lemonmall.huage.ru/images/og.png">
-
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D2SBBFBYH8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-D2SBBFBYH8');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    * {margin:0;padding:0;box-sizing:border-box;}
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: url('images/image1.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: linear-gradient(120deg, #ffd700, #ffde63);
-      text-align: center;
-      padding: 140px 20px 80px;
-      background-image: url('images/image2.png');
-      background-size: cover;
-      background-position: center;
-      color: #FFD700;
-    }
-    header h1 {
-      font-size: 56px;
-      color: #FFD700;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    }
-    header p {
-      font-size: 22px;
-      color: #fff1a8;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-    nav {
-      position: sticky;
-      top: 0;
-      background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 12px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      z-index: 1000;
-    }
-    nav a { color: #333; text-decoration: none; font-weight: 500; transition: 0.3s; }
-    nav a:hover { color: #d4af37; }
-
-    section {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 20px;
-      background: rgba(255,255,255,0.9);
-      border-radius: 12px;
-    }
-    section img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      margin: 20px 0;
-    }
-    h2 { font-size: 34px; margin-bottom: 16px; color: #222; text-align: center; }
-    p, ul { font-size: 18px; line-height: 1.6; color: #555; }
-    ul { padding-left: 20px; }
-
-    .cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 40px; }
-    .card {
-      width: 280px; background: #fff; border: 2px solid #eee; border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; padding: 20px;
-    }
-    .card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-
-    .cta, .form-section { text-align: center; margin: 60px 0; }
-    .cta a, .whatsapp-button {
-      background-color: #25D366; color: #fff; text-decoration: none; padding: 16px 30px;
-      font-size: 18px; font-weight: bold; border-radius: 8px; transition: background-color .3s ease;
-      display: inline-block; margin-top: 20px;
-    }
-    .form-section form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
-    .form-section input { padding: 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; }
-    .form-section button { padding: 14px; font-size: 16px; background: #f5c842; color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-
-    .stats { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 40px; text-align: center; }
-    .stat { flex: 1; min-width: 150px; margin: 10px 0; }
-    .stat h3 { font-size: 28px; color:#f5c842; }
-
-    .countdown { text-align: center; font-size: 20px; background: #fff3c4; padding: 20px; margin-top: 40px; border-radius: 12px; font-weight: bold; }
-
-    /* Reviews */
-    .reviews { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px; }
-    .review {
-      background:#fff; border:1px solid #ddd; border-radius: 16px; padding: 24px; width: 320px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;
-    }
-    .review img{
-      width:150px; height:150px; object-fit:cover; border-radius:16px;
-      border:3px solid #FFD700; margin-bottom:15px;
-    }
-    .review h4 { margin: 6px 0 8px; }
-
-    /* HOW IT WORKS */
-    #how { padding-bottom: 30px; }
-    .how-steps { padding: 10px 0 30px; }
-    .steps { display: grid; gap: 22px; max-width: 720px; margin: 0 auto; }
-    .step{
-      background:#fff; border:1px solid #eee; border-radius:16px;
-      box-shadow:0 6px 14px rgba(0,0,0,.06);
-      padding:22px; display:flex; align-items:center; gap:16px;
-      animation:fadeUp .6s ease both;
-    }
-    .icon-badge{
-      width:64px; height:64px; border-radius:14px;
-      background:linear-gradient(135deg,#fff8d1,#ffd700);
-      display:flex; align-items:center; justify-content:center;
-      box-shadow: inset 0 0 0 2px rgba(255,215,0,.45);
-      flex: 0 0 64px;
-    }
-    .icon-badge i{ font-size:28px; color:#7a5f00; }
-    .step-text{ flex:1; }
-    .step-title{ font-weight:700; }
-    .step-sub{ font-size:14px; color:#666; }
-
-    .arrow{ display:flex; justify-content:center; align-items:center; color:#d4af37; }
-    .arrow i{ font-size:26px; }
-
-    @media (min-width: 900px){
-      .steps{ grid-template-columns: 1fr; }
-      .arrow i{ transform:none; }
-    }
-
-    @keyframes fadeUp{ from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none} }
-
-    footer { background:#333; color:#fff; text-align:center; padding:40px 20px; font-size:14px; }
-    footer a { color:#f5e050; margin:0 10px; }
-
-    /* === ДОБАВКА: стили для блока видео-воронки === */
-    .video-box{ max-width: 720px; margin: 0 auto; }
-    .video-actions{
-      display: flex;
-      flex-direction: column; /* гамбургер: кнопки в колонку */
-      gap: 12px;
-      align-items: stretch;
-      margin-bottom: 16px;
-    }
-    .video-actions .whatsapp-button,
-    .video-actions .video-btn{
-      width: 100%;
-      text-align: center;
-    }
-    .video-btn{
-      border:0; font-weight:700;
-      padding:12px 18px; border-radius:8px; cursor:pointer;
-    }
-    .video-btn.next{ background:#25D366; color:#fff; }      /* зелёная «Далее» */
-    .video-btn.secondary{ background:#4daaf7; color:#fff; } /* голубая «Назад» */
-
-    /* Подсветка индикатора текущего шага */
-    .step-indicator{ text-align:center;margin:16px 0 8px;color:#666; }
-    .step-indicator.active{ color:#d4af37; font-weight:700; }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<header>
-  <h1>Lemon Mall</h1>
-  <p>Инновационный маркетплейс из Азии для всего Мира</p>
-</header>
-
-<!-- ===== ВИДЕО-ВОРОНКА (встроенный блок) ===== -->
-<section id="videos" style="max-width:1100px;margin:40px auto;padding:0 20px;background:rgba(255,255,255,0.95);border-radius:12px;">
-  <h2 style="text-align:center;font-size:34px;margin-bottom:16px;color:#222;">посмотри 3 видео</h2>
-
-  <!-- Шаг 1 -->
-  <div class="video-step" id="vstep1">
-    <div class="video-box" style="position:relative;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
-      <video id="v1" controls playsinline preload="metadata" style="width:100%;height:auto;display:block;">
-        <source src="videos/video1.mp4" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-      </video>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">HUAGE & Lemon Mall</div>
+      <nav class="nav">
+        <a href="#about">О проекте</a>
+        <a href="#videos">Видео</a>
+        <a href="#partner">Партнёрство</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#cards">Карты</a>
+        <a href="#cta" class="btn btn--whatsapp">Связаться</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="step-indicator active" id="ind1">Шаг 1/3</div>
-    <div class="video-actions">
-      <button class="video-btn next" onclick="showVStep(2)">Далее →</button>
-    </div>
-  </div>
+  </header>
 
-  <!-- Шаг 2 -->
-  <div class="video-step" id="vstep2" style="display:none;">
-    <div class="video-box" style="position:relative;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
-      <video id="v2" controls playsinline preload="metadata" style="width:100%;height:auto;display:block;">
-        <source src="videos/video2.mp4" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-      </video>
-    </div>
-    <div class="step-indicator" id="ind2">Шаг 2/3</div>
-    <div class="video-actions">
-      <button class="video-btn next" onclick="showVStep(3)">Далее →</button>
-      <button class="video-btn secondary" onclick="showVStep(1)">← Назад</button>
-    </div>
-  </div>
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#about">О проекте</a>
+    <a href="#videos">Видео</a>
+    <a href="#partner">Партнёрство</a>
+    <a href="#benefits">Преимущества</a>
+    <a href="#cards">Карты</a>
+    <a href="#cta" class="btn btn--whatsapp">Связаться</a>
+  </nav>
 
-  <!-- Шаг 3 -->
-  <div class="video-step" id="vstep3" style="display:none;">
-    <div class="video-box" style="position:relative;border-radius:10px;overflow:hidden;background:#000;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
-      <video id="v3" controls playsinline preload="metadata" style="width:100%;height:auto;display:block;">
-        <source src="videos/video3.mp4" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-      </video>
-    </div>
-    <div class="step-indicator" id="ind3">Шаг 3/3</div>
-    <div class="video-actions">
-      <a class="whatsapp-button"
-         href="https://wa.me/491639835824?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%BE%D0%BC"
-         target="_blank"
-         onclick="gtag('event','whatsapp_click',{event_category:'video',event_label:'video_step3'});">Стать партнёром</a>
-      <button class="video-btn secondary" onclick="showVStep(2)">← Назад</button>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Автопереход на следующий шаг после окончания ролика
-  (function(){
-    const v1 = document.getElementById('v1');
-    const v2 = document.getElementById('v2');
-    if(v1){ v1.addEventListener('ended', ()=>showVStep(2)); }
-    if(v2){ v2.addEventListener('ended', ()=>showVStep(3)); }
-  })();
-
-  function showVStep(n){
-    for(let i=1;i<=3;i++){
-      const block = document.getElementById('vstep'+i);
-      const ind   = document.getElementById('ind'+i);
-      if(block){
-        const vid = block.querySelector('video');
-        if(vid && i!==n){
-          try{ vid.pause(); }catch(e){}
-          try{ vid.currentTime = 0; }catch(e){}
-        }
-        block.style.display = (i===n) ? 'block' : 'none';
-      }
-      if(ind){ ind.classList.toggle('active', i===n); }
-    }
-    const root = document.getElementById('videos');
-    if(root){ root.scrollIntoView({behavior:'smooth', block:'start'}); }
-  }
-</script>
-<!-- ===== /ВИДЕО-ВОРОНКА ===== -->
-
-<nav>
-  <a href="#about">about</a>
-  <a href="#benefits">benefits</a>
-  <a href="#how">how it Works</a>
-  <a href="#form">Join</a>
-</nav>
-
-<section id="about">
-  <h2>О маркетплейсе - Lemon Mall</h2>
-  <p>Lemon Mall — это глобальный онлайн-маркетплейс от Baishi Health и HUAGE. С 6 заводами и более чем 1000 товарами мы доставляем люксовые продукты и товары повседневного спроса прямо к вам домой.</p>
-  <img src="images/image3.png" alt="About Us" />
-</section>
-
-<section id="benefits">
-  <h2>Партнёрские карты</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="images/image7.png" alt="Silver Card">
-      <h3>Серебряная карта</h3>
-      <p>Начни свой путь вместе с Lemon Mall</p>
-      <p><strong>Цена: $200</strong></p>
-      <a class="whatsapp-button"
-         href="https://wa.me/491639835824?text=%D0%9A%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20%D1%81%D0%B5%D1%80%D0%B5%D0%B1%D1%80%D1%8F%D0%BD%D1%83%D1%8E%20%D0%BA%D0%B0%D1%80%D1%82%D1%83"
-         target="_blank"
-         onclick="gtag('event','whatsapp_click',{event_category:'purchase',event_label:'silver_card'});">Купить</a>
-    </div>
-    <div class="card">
-      <img src="images/image8.png" alt="Gold Card">
-      <h3>Золотая карта</h3>
-      <p>Развивай сеть и увеличивай доход</p>
-      <p><strong>Цена: $500</strong></p>
-      <a class="whatsapp-button"
-         href="https://wa.me/491639835824?text=%D0%9A%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D1%83%D1%8E%20%D0%BA%D0%B0%D1%80%D1%82%D1%83"
-         target="_blank"
-         onclick="gtag('event','whatsapp_click',{event_category:'purchase',event_label:'gold_card'});">Купить</a>
-    </div>
-    <div class="card">
-      <img src="images/image9.png" alt="Diamond Card">
-      <h3>Бриллиантовая карта</h3>
-      <p>Получай максимальные привилегии</p>
-      <p><strong>Цена: $1000</strong></p>
-      <a class="whatsapp-button"
-         href="https://wa.me/491639835824?text=%D0%9A%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20%D0%B1%D1%80%D0%B8%D0%BB%D0%BB%D0%B8%D0%B0%D0%BD%D1%82%D0%BE%D0%B2%D1%83%D1%8E%20%D0%BA%D0%B0%D1%80%D1%82%D1%83"
-         target="_blank"
-         onclick="gtag('event','whatsapp_click',{event_category:'purchase',event_label:'diamond_card'});">Купить</a>
-    </div>
-  </div>
-</section>
-
-<section id="how" class="how-steps">
-  <h2>Как это работает</h2>
-
-  <div class="steps">
-    <div class="step">
-      <div class="icon-badge"><i class="fa-solid fa-user-plus"></i></div>
-      <div class="step-text">
-        <div class="step-title">Шаг 1 — Регистрация</div>
-        <div class="step-sub">Создайте партнёрский аккаунт Lemon Mall за несколько минут.</div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1 class="reveal">HUAGE & Lemon Mall — это инновационный международный маркетплейс нового поколения</h1>
+        <p class="lead reveal">
+          Lemon Mall — это инновационный международный маркетплейс нового поколения, созданный по модели мировых гигантов
+          Wildberries, Amazon и Alibaba. Главная цель проекта — объединить лучшее из мира онлайн-торговли:
+          <strong>доступные цены</strong>, <strong>премиальное качество</strong> и <strong>быструю доставку</strong> по всему миру.
+        </p>
+        <div class="cta-group reveal">
+          <!-- TODO: вставь номер/текст в wa.me -->
+          <a class="btn btn--whatsapp" href="https://wa.me/" target="_blank" rel="noopener">Связаться с Петимат</a>
+          <a class="btn btn--ghost" href="#videos">Смотреть видео</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/images/hero.jpg" alt="Lemon Mall" loading="lazy" />
       </div>
     </div>
+  </section>
 
-    <div class="arrow"><i class="fa-solid fa-arrow-down"></i></div>
-
-    <div class="step">
-      <div class="icon-badge"><i class="fa-solid fa-share-nodes"></i></div>
-      <div class="step-text">
-        <div class="step-title">Шаг 2 — Приглашение</div>
-        <div class="step-sub">Делитесь своей личной ссылкой и приглашайте клиентов и партнёров.</div>
+  <!-- About / Story -->
+  <section id="about" class="section">
+    <div class="container grid-2">
+      <div>
+        <h2 class="section-title reveal">История Петимат</h2>
+        <p class="reveal">
+          Привет! Меня зовут Петимат, и я хочу поделиться с вами своей историей. Я врач, и моя жизнь всегда была связана с помощью людям.
+          Но сейчас, находясь в Германии, я открыла для себя новый путь — международный проект Lemon Mall, который стал для меня настоящим открытием.
+        </p>
+        <p class="reveal">
+          Здесь я поняла, что можно не только лечить, но и помогать людям достигать финансовой свободы. В моей команде уже более
+          <strong>9 000</strong> активных участников, и каждый день к нам присоединяются новые, полные энтузиазма люди.
+          Я окружена успешными и вдохновляющими лидерами, и мне невероятно приятно видеть, как мы растём и развиваемся вместе.
+        </p>
+        <p class="reveal">
+          Я уже стала акционером компании и теперь стремлюсь помочь другим достичь тех же высот. Если ты готов к переменам, хочешь развиваться
+          и начать новую, яркую главу своей жизни, я приглашаю тебя стать частью нашей команды. Вместе мы сможем достичь невероятных результатов
+          и создать что-то поистине уникальное!
+        </p>
+        <div class="cta-inline reveal">
+          <a class="link-whatsapp" href="https://wa.me/" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        </div>
+      </div>
+      <div class="gallery">
+        <img class="reveal" src="assets/images/petimat-1.jpg" alt="Петимат" loading="lazy" />
+        <img class="reveal" src="assets/images/petimat-2.jpg" alt="Команда HUAGE" loading="lazy" />
+        <img class="reveal" src="assets/images/petimat-3.jpg" alt="Lemon Mall" loading="lazy" />
       </div>
     </div>
+  </section>
 
-    <div class="arrow"><i class="fa-solid fa-arrow-down"></i></div>
+  <!-- Videos steps -->
+  <section id="videos" class="section section--alt">
+    <div class="container">
+      <h2 class="section-title reveal">Обучающие видео — смотрите по порядку</h2>
+      <p class="muted reveal">Просматривайте видео строго по порядку от 1 до 3</p>
 
-    <div class="step">
-      <div class="icon-badge"><i class="fa-solid fa-coins"></i></div>
-      <div class="step-text">
-        <div class="step-title">Шаг 3 — Доход</div>
-        <div class="step-sub">Получайте комиссию с каждой покупки по вашей ссылке.</div>
+      <div class="steps">
+        <div class="step-card reveal">
+          <div class="step-num">Шаг 1</div>
+          <h3>Начало работы</h3>
+          <p>Вводное видео для новых пользователей</p>
+          <!-- TODO: при наличии — вставь src YouTube или self-host -->
+          <div class="video-placeholder">Видео 1</div>
+        </div>
+
+        <div class="step-card reveal">
+          <div class="step-num">Шаг 2</div>
+          <h3>Продвинутые функции</h3>
+          <p>Видео 2 будет добавлено</p>
+          <div class="video-placeholder">Видео 2</div>
+        </div>
+
+        <div class="step-card reveal">
+          <div class="step-num">Шаг 3</div>
+          <h3>Истории успеха</h3>
+          <p>Видео 3 будет добавлено</p>
+          <div class="video-placeholder">Видео 3</div>
+        </div>
+      </div>
+
+      <div class="cta-inline center reveal">
+        <a class="btn btn--whatsapp" href="https://wa.me/" target="_blank" rel="noopener">Связаться в WhatsApp</a>
       </div>
     </div>
+  </section>
 
-    <div class="arrow"><i class="fa-solid fa-arrow-down"></i></div>
-
-    <div class="step">
-      <div class="icon-badge"><i class="fa-solid fa-chart-line"></i></div>
-      <div class="step-text">
-        <div class="step-title">Шаг 4 — Масштабирование</div>
-        <div class="step-sub">Стройте команду и открывайте пункты выдачи по мере роста.</div>
+  <!-- Partner -->
+  <section id="partner" class="section">
+    <div class="container grid-2">
+      <div>
+        <h2 class="section-title reveal">Партнёрство с HUAGE & Lemon Mall</h2>
+        <p class="reveal">
+          Сегодня приложение Lemon Mall уже доступно для скачивания, однако регистрация открыта исключительно для партнёров компании HUAGE —
+          официального филиала китайской корпорации Baishi Health Group, в состав которой входят <strong>6 заводов</strong> и
+          собственный научно-исследовательский центр.
+        </p>
+        <p class="reveal">
+          До <strong>2027 года</strong> действует масштабная маркетинговая программа с элементами сетевого продвижения,
+          которая открывает каждому возможность стать партнёром на ранней стадии и начать зарабатывать уже сегодня.
+        </p>
+      </div>
+      <div class="tiles">
+        <div class="tile reveal">Масштабная маркетинговая программа до 2027 года</div>
+        <div class="tile reveal">Ранняя стадия = максимум возможностей</div>
+        <div class="tile reveal">Поддержка лидеров и обучение</div>
       </div>
     </div>
+  </section>
 
-    <div class="arrow"><i class="fa-solid fa-arrow-down"></i></div>
+  <!-- Benefits -->
+  <section id="benefits" class="section section--alt">
+    <div class="container">
+      <h2 class="section-title reveal">Преимущества партнёрства</h2>
 
-    <div class="step">
-      <div class="icon-badge"><i class="fa-solid fa-gem"></i></div>
-      <div class="step-text">
-        <div class="step-title">Шаг 5 — Доля в прибыли</div>
-        <div class="step-sub">Получайте долю прибыли маркетплейса как топ-партнёр.</div>
+      <div class="benefits-grid">
+        <div class="benefit reveal">
+          <h3>Заработок с первого дня</h3>
+          <p>Каждый партнёр, независимо от типа карты, может приглашать новых участников и получать денежные бонусы ежедневно.</p>
+        </div>
+        <div class="benefit reveal">
+          <h3>Ежедневные выплаты</h3>
+          <p>Бонусы поступают на внутренний счёт и доступны к выводу уже на следующий день.</p>
+        </div>
+        <div class="benefit reveal">
+          <h3>Простая система вознаграждений</h3>
+          <ul class="payouts">
+            <li><span>1</span> За первого приглашённого — <strong>20%</strong></li>
+            <li><span>2</span> За второго приглашённого — <strong>20%</strong></li>
+            <li><span>3</span> За третьего приглашённого — <strong>60%</strong></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <img src="images/image4.png" alt="Steps Illustration" />
-</section>
+  <!-- Cards -->
+  <section id="cards" class="section">
+    <div class="container grid-2">
+      <div class="card card--image reveal">
+        <img src="assets/images/card-diamond.jpg" alt="Бриллиантовая карта" loading="lazy" />
+        <div class="card-body">
+          <h3>Бриллиантовая карта</h3>
+          <p>Участие в распределении 49% акций маркетплейса при достижении определённого статуса, а также процент от товарооборота всей вашей сети по бинарной системе.</p>
+        </div>
+      </div>
+      <div class="card card--image reveal">
+        <img src="assets/images/card-gold.jpg" alt="Золотая и Серебряная карты" loading="lazy" />
+        <div class="card-body">
+          <h3>Золотая и Серебряная карты</h3>
+          <p>Участие в лотереях, розыгрышах и бонусных программах.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="countdown">
-  Поторопись! Скидка 50% только до <strong>31 Августа</strong> — стань партнёром Lemon Mall уже сегодня!
-</div>
+  <!-- Why first -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="section-title reveal">Почему важно быть среди первых</h2>
+      <blockquote class="quote reveal">
+        История показывает: те, кто присоединяются на раннем этапе, становятся лидерами и получают максимальные выгоды. Когда Alibaba только запускалась, первые инвесторы и партнёры стали долларовыми миллионерами, а некоторые — миллиардерами после выхода компании на IPO. Ранние партнёры Amazon и Wildberries также получили состояния, став частью компаний до их взлёта.
+      </blockquote>
 
-<section class="stats">
-  <div class="stat"><h3>50,000+</h3><p>Partners Joined</p></div>
-  <div class="stat"><h3>1,000+</h3><p>Products Available</p></div>
-  <div class="stat"><h3>6</h3><p>Factories in Asia</p></div>
-</section>
+      <div class="triples">
+        <div class="triple reveal">
+          <div class="num">1</div>
+          <div class="text">Распределение долей</div>
+        </div>
+        <div class="triple reveal">
+          <div class="num">2</div>
+          <div class="text">Формирование сети</div>
+        </div>
+        <div class="triple reveal">
+          <div class="num">3</div>
+          <div class="text">Создание структуры</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="reviews">
-  <div class="review">
-    <img src="images/image10.png" alt="Guljan">
-    <h4>Guljan</h4>
-    <p>"Благодаря Lemon Mall я нашла реальные возможности и собрала команду всего за 2 месяца!"</p>
-  </div>
-  <div class="review">
-    <img src="images/image11.png" alt="Gulya">
-    <h4>Gulya</h4>
-    <p>"Отличная команда и система, инвестиция в будущее и пассивный доход. Очень рекомендую!"</p>
-  </div>
-  <div class="review">
-    <img src="images/image12.png" alt="Nazira">
-    <h4>Nazira</h4>
-    <p>"С моей первой рекомендации я уже заработала больше, чем ожидала! Спасибо."</p>
-  </div>
-</section>
+  <!-- Final CTA -->
+  <section id="cta" class="section cta">
+    <div class="container">
+      <h2 class="section-title reveal">Начни с HUAGE уже сегодня!</h2>
+      <p class="reveal">Свяжитесь с официальным партнёром и получите дополнительную информацию и инструкцию для регистрации.</p>
+      <a class="btn btn--whatsapp reveal" href="https://wa.me/" target="_blank" rel="noopener">Написать на WhatsApp</a>
+      <p class="muted reveal">HUAGE — зарабатывайте, развивайтесь и растите вместе с нами!</p>
+    </div>
+  </section>
 
-<div class="cta">
-   <a class="whatsapp-button"
-      href="https://wa.me/491639835824?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D0%BE%D0%BC"
-      target="_blank"
-      onclick="gtag('event','whatsapp_click',{event_category:'engagement',event_label:'main_button'});">
-    <i class="fab fa-whatsapp"></i> Напиши в WhatsApp
-  </a>
-</div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> HUAGE & Lemon Mall</div>
+      <a href="https://wa.me/" target="_blank" rel="noopener">Связаться с Партнёром</a>
+    </div>
+  </footer>
 
-<div class="form-section" id="form">
-  <h2>ОСТАВЬ ЗАЯВКУ</h2>
-  <form id="partnerForm">
-    <input type="text" id="firstName" placeholder="Имя" required />
-    <input type="text" id="lastName" placeholder="Фамилия" required />
-    <input type="tel" id="phone" placeholder="Номер телефона" required />
-    <input type="text" id="country" placeholder="Страна" required />
-    <input type="text" id="city" placeholder="Город" required />
-    <button type="submit">Отправить</button>
-  </form>
-</div>
-
-<script>
-  document.getElementById("partnerForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
-    const phone = document.getElementById("phone").value;
-    const country = document.getElementById("country").value;
-    const city = document.getElementById("city").value;
-    const message =
-      `Новая заявка:%0AИмя: ${firstName}%0AФамилия: ${lastName}%0AТелефон: ${phone}%0AСтрана: ${country}%0AГород: ${city}%0AХочу стать партнёром`;
-    const whatsappNumber = "491639835824";
-    const url = `https://wa.me/${whatsappNumber}?text=${message}`;
-
-    // событие GA4: заявка из формы (ведёт в WhatsApp)
-    gtag('event','whatsapp_click',{event_category:'form',event_label:'partner_form'});
-
-    window.open(url, "_blank");
-  });
-</script>
-
-<footer>
-  <p>&copy; 2025 Lemon Mall. All rights reserved.</p>
-  <div>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Use</a>
-  </div>
-</footer>
-
+  <script src="js/script.js"></script>
 </body>
 </html>
